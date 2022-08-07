@@ -18,7 +18,7 @@ export default function Home() {
     const data = {
       email : email
     }
-    fetch('http://localhost:3000/api/notifiy',{
+    fetch('http://woodsleaf.vercel.app/api/notifiy',{
       method : 'POST',
       headers : {
         "Content-Type" : 'application/json',
