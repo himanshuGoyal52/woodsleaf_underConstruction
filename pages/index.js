@@ -84,7 +84,7 @@ export default function Home() {
           </div>
 
           <div>
-            <a  href="//api.whatsapp.com/send?phone=917412972658&text=whats up gandu">WhatsApp</a>
+            <a  href="//api.whatsapp.com/send?phone=917412972658&text=https://woodsleaf.com || please customize this product for me">WhatsApp</a>
             <Link href={'https://www.facebook.com/WoodsLeaf-107229878756138'}>
               <a target="_blank" className={styles.socialLink}> <Image width={20} height={20} src={'/facebook.png'} alt="WoodsLeaf Facebook Page" /> </a>
             </Link>
