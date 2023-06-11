@@ -84,7 +84,7 @@ export default function Home() {
           </div>
 
           <div>
-            <WhatsappShareButton title="Please customized this product for me!!" separator='||' url={`https://www.woodsleaf.com/`}> <a target="_blank" title="Whatsapp"   className="gplus social-icon">wpshare</a> </WhatsappShareButton>
+            <a  href="//api.whatsapp.com/send?phone=917412972658&text=whats up gandu">WhatsApp</a>
             <Link href={'https://www.facebook.com/WoodsLeaf-107229878756138'}>
               <a target="_blank" className={styles.socialLink}> <Image width={20} height={20} src={'/facebook.png'} alt="WoodsLeaf Facebook Page" /> </a>
             </Link>
