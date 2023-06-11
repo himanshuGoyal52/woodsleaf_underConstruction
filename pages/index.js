@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { WhatsappShareButton } from 'react-share'
 
 export default function Home() {
   const [ email , setEmail ] = useState('');
@@ -18,7 +19,7 @@ export default function Home() {
     const data = {
       email : email
     }
-    fetch('http://woodsleaf.vercel.app/api/notifiy',{
+    fetch(`${location.href}/api/notifiy`,{
       method : 'POST',
       headers : {
         "Content-Type" : 'application/json',
@@ -32,6 +33,28 @@ export default function Home() {
       toast.error("Some error occurred :(");
     })
   }
+
+  const [ USDtoINR , setUSDtoINR] = useState({});
+
+  useEffect(() => {
+    const getusdtoinr =  async () => {
+			try{
+				const _data = await axios.get('https://anyapi.io/api/v1/exchange/convert?base=USD&to=INR&amount=1&apiKey=2jkrf9duc2gab4gdrcbek8vbhmmuc7u9gt9erh17f09o87q758kla9o' ,{
+				  headers : {
+					'Access-Control-Allow-Origin' : '*',
+					'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+				  }
+				});
+				setUSDtoINR(_data);
+        console.log(_data);
+        console.log(USDtoINR);
+			}catch(err){
+        // setUSDtoINR({rate : 82.45});
+        console.log(USDtoINR);
+			}
+		}
+		getusdtoinr();
+  } , [USDtoINR])
 
 
   return (
@@ -61,7 +84,7 @@ export default function Home() {
           </div>
 
           <div>
-
+            <WhatsappShareButton title="Please customized this product for me!!" separator='||' url={`https://www.woodsleaf.com/`}> <a target="_blank" title="Whatsapp"   className="gplus social-icon">wpshare</a> </WhatsappShareButton>
             <Link href={'https://www.facebook.com/WoodsLeaf-107229878756138'}>
               <a target="_blank" className={styles.socialLink}> <Image width={20} height={20} src={'/facebook.png'} alt="WoodsLeaf Facebook Page" /> </a>
             </Link>
